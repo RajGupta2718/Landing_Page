@@ -1,0 +1,22 @@
+.btn {
+    &.btn-primary {
+        background-color: $white;
+        font-weight: 700;
+        font-size: px_to_rem(16);
+        line-height: px_to_rem(19);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: $black;
+        border-radius: 0;
+        border: 0;
+        box-shadow: none;
+        padding: 24px 64px;
+
+        &:hover,
+        &:focus {
+            background-color: #000000;
+            color: $white;
+            transition: all 0.3s;
+        }
+    }
+}

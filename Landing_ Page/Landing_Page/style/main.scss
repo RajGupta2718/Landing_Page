@@ -1,0 +1,21 @@
+body {
+    background: #e5eaee;
+    font-family: 'Inter', sans-serif;
+}
+
+.page {
+    max-width: 1440px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+@import "variables";
+@import "colors";
+@import "typography";
+@import "nav";
+@import "header";
+@import "text-section";
+@import "members";
+@import "footer";
+@import "buttons";
+@import "modal";

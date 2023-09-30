@@ -1,0 +1,56 @@
+nav {
+    &.page {
+        border-bottom: 0.5px solid $white;
+        .navbar-brand {
+            padding-left: 60px;
+            @media (max-width: 991.98px) {
+                padding-left: 10px;
+
+                img {
+                    height: 35px;
+                }
+            }
+        }
+        &.sticky {
+            background: $black;
+            border-bottom: 0;
+        }
+
+        @media (max-width: 991.98px) {
+            background-color: $black;
+            border-bottom: 0;
+        }
+    }
+    .nav-item {
+        align-self: center;
+        margin-right: 50px;
+        &:last-child {
+            margin-right: 0;
+        }
+        .nav-link {
+            opacity: .5;
+            padding: 0;
+            &:hover {
+                opacity: 1;
+                transition: all 0.3s;
+            }
+        }
+        &.nav-button {
+            background: $red;
+            opacity: 1;
+            padding: 0 70px !important;
+            height: 100%;
+            min-height: 95px;
+            line-height: 95px;
+
+            .nav-link {
+                opacity: 1;
+                line-height: inherit;
+            }
+        }
+
+        @media (max-width: 991.98px) {
+            align-self: flex-start;
+        }
+    }
+}

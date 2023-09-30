@@ -1,0 +1,173 @@
+.members-section {
+    padding-bottom: 180px;
+
+    @media (max-width: 767.98px) {
+        padding-bottom: 0;
+    }
+
+    .sailor-img {
+        position: relative;
+        top: -50%;
+        @media (max-width: 767.98px) {
+            top: auto;
+        }
+    }
+
+    .members-text-content {
+        padding: 0 0 130px 0;
+
+        @media (max-width: 991.98px) {
+            padding: 0 0 50px 0;
+        }
+    }
+
+    .members-filters {
+        li {
+            margin-right: 36px;
+            margin-bottom: 0;
+
+            @media (max-width: 575.98px) {
+                margin-right: 10px;
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+
+    .member {
+        width: 20%;
+        height: 288px;
+        overflow: hidden;
+        position: relative;
+        z-index: 1;
+        img {
+            width: 100%;
+            object-fit: cover;
+            max-height: 288px;
+        }
+
+        .hidden-content {
+            display: none;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            right: 0;
+            top: 0;
+            background-color: $white;
+            z-index: -1;
+            padding: 0 50px 26px 24px;
+        }
+
+        &:hover {
+            overflow: visible;
+            z-index: 3;
+            > .hidden-content {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                -webkit-animation: slide 1s forwards;
+                animation: slide 1s forwards;
+            }
+            @-webkit-keyframes slide {
+                100% { right: -100%; }
+            }
+
+            @keyframes slide {
+                100% { right: -100%; }
+            }
+            &:before {
+                display: none;
+                transition: all 0.7s;
+            }
+
+            @media (max-width: 991.98px) {
+                overflow: hidden;
+                z-index: 1;
+                > .hidden-content,
+                &:nth-child(5n+5) > .hidden-content {
+                    z-index: 1;
+                    right: 0;
+                    background: $white;
+                    animation: fade 1.5s;
+                }
+
+                @-webkit-keyframes fade {
+                    0% {opacity:0;}
+                    100% {opacity:1;}
+                }
+
+                @keyframes fade {
+                    0% {opacity:0;}
+                    100% {opacity:1;}
+                }
+            }
+        }
+
+        &:nth-child(5n+5) {
+            > .hidden-content {
+                left: 0;
+                -webkit-animation: slide-in 1s forwards;
+                animation: slide-in 1s forwards;
+            }
+            @-webkit-keyframes slide-in {
+                100% { left: -100%; }
+            }
+
+            @keyframes slide-in {
+                100% { left: -100%; }
+            }
+        }
+
+        &:before {
+            position: absolute;
+            content: '';
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+        }
+
+        @media (max-width: 991.98px) {
+            width: 33.33%;
+        }
+
+        @media (max-width: 767.98px) {
+            width: 50%;
+        }
+
+        @media (max-width: 575.98px) {
+            width: 100%;
+        }
+    }
+
+    .members-row {
+        margin-bottom: 80px;
+        position: relative;
+    }
+
+    #loader {
+        position: absolute;
+        left: 50%;
+        bottom: 20%;
+        z-index: 2;
+        width: 60px;
+        height: 60px;
+        margin: -76px 0 0 -76px;
+        border: 16px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 16px solid #000000;
+        -webkit-animation: spin 2s linear infinite;
+        animation: spin 2s linear infinite;
+    }
+
+    @-webkit-keyframes spin {
+        0% { -webkit-transform: rotate(0deg); }
+        100% { -webkit-transform: rotate(360deg); }
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+}

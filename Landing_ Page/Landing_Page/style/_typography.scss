@@ -1,0 +1,86 @@
+//_typography.scss
+
+//typography
+
+$base-size: 16;
+@function px_to_rem($target, $context: $base-size) {
+    @return ($target / $context) * 1rem;
+}
+
+@mixin font_primary_regular
+{
+    font-weight: 500;
+    font-style: normal;
+    font-size: px_to_rem(16);
+    line-height: px_to_rem(28);
+}
+
+body
+{
+    @include font_primary_regular;
+    color: $black;
+    overflow-wrap: normal;
+}
+
+//extra bold
+strong {
+    font-weight: 800;
+}
+
+p {
+    :last-child
+    {
+        margin-bottom: 0;
+    }
+
+    &.small
+    {
+        font-size: px_to_rem(14);
+        line-height: 21px;
+    }
+}
+
+
+//-----------------------//x
+
+
+$elements_font_sizes: (
+        h1: (font_weight: 500, font_weight_strong: 800, font_style: normal, font_size: 80, line_height: 96, font_size_sm: 55, line_height_sm: 70, letter_spacing: normal, margin_bottom: px_to_rem(24)),
+        h2: (font_weight: 500, font_weight_strong: 800, font_style: normal, font_size: 60, line_height: 72, font_size_sm: 45, line_height_sm: 60, letter_spacing: normal, margin_bottom: 1rem),
+        h3: (font_weight: 500, font_weight_strong: 700, font_style: normal, font_size: 36, line_height: 42, font_size_sm: 36, line_height_sm: 42, letter_spacing: normal, margin_bottom: px_to_rem(32)),
+        h5: (font_weight: normal, font_weight_strong: bold, font_style: normal, font_size: 24, line_height: 28, font_size_sm: 24, line_height_sm: 28, letter_spacing: normal, margin_bottom: px_to_rem(36)),
+        label:  (font_weight: 700, font_weight_strong: 800, font_style: normal, font_size: 16, line_height: 19, font_size_sm: 16, line_height_sm: 19, letter_spacing: 0.08rem, margin_bottom: 0),
+        p:  (font_weight: 500,    font_weight_strong: 700, font_style: normal, font_size: 16, line_height: 29, font_size_sm: 16, line_height_sm: 29, letter_spacing: normal, margin_bottom: 1rem),
+        li: (font_weight: 500,    font_weight_strong: 700, font_style: normal, font_size: 16, line_height: 29, font_size_sm: 16, line_height_sm: 29, letter_spacing: normal, margin_bottom: px_to_rem(20)),
+) !default;
+
+
+@each $el, $font in $elements_font_sizes
+{
+
+    #{$el}, .#{$el}_style
+    {
+        font-weight: map-get($font, 'font_weight');
+        font-style: map-get($font, 'font_style');
+        font-size: px_to_rem(map-get($font, 'font_size'));
+        line-height: px_to_rem(map-get($font, 'line_height'));
+        letter-spacing: map-get($font, 'letter_spacing');
+        margin-bottom: map-get($font, 'margin_bottom');
+        overflow-wrap:normal;
+        strong
+        {
+            font-weight:  map-get($font, 'font_weight_strong');
+        }
+
+        @media (max-width: 575.98px)
+        {
+            font-size: px_to_rem(map-get($font, 'font_size_sm'));
+            line-height: px_to_rem(map-get($font, 'line_height_sm'));
+        }
+
+    }
+}
+
+
+
+
